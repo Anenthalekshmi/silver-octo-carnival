@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-52xk8ci+relgr8vy7z$oefm(zg24*8gq6+8#a!v$%4yf7%@goq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,11 +46,8 @@ INSTALLED_APPS += [
     'rest_framework.authtoken',
     'corsheaders',
     'dj_rest_auth',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
     'core',
+    'octofit_tracker',
 ]
 
 MIDDLEWARE = [
@@ -140,8 +137,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Django sites framework (required by allauth)
-SITE_ID = 1
 
 # REST framework (basic)
 REST_FRAMEWORK = {
@@ -151,9 +146,7 @@ REST_FRAMEWORK = {
 }
 
 # CORS - allow local frontend in development
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-]
-
-# Optionally allow all origins during initial development (commented)
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_HEADERS = ['*']
+CORS_ALLOW_METHODS = ['*']
